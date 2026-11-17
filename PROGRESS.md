@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T14:45:54+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T15:06:26+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -35,7 +35,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T9 | getalldealers | DONE | Live Django proxy returns all 50 dealers with the required template fields. |
 | T10 | getdealerbyid | DONE | Live Django proxy returns the actual dealer 15 record from MongoDB. |
 | T11 | getdealersbyState | DONE | Live Django proxy filters Kansas and returns Bytecard in Topeka, dealer 8. |
-| T12 | screenshots/admin_login.png | PENDING | Recapture root logged into the real admin; inspect the image. |
+| T12 | screenshots/admin_login.png | DONE | Inspected native 1440x900 Chrome window: root is logged into /admin and Car makes/Car models are visible. |
 | T13 | screenshots/admin_logout.png | PENDING | Recapture the real Logged out admin page; inspect the image. |
 | T14 | getallcarmakes (makes) | DONE | getallcarmakes contains 5 real Django ORM CarMake records; admin registration and idempotent populate.py are present. |
 | T15 | getallcarmakes (models) | DONE | The same live get_cars response includes 58 CarModel records linked to their makes. |

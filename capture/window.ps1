@@ -17,16 +17,27 @@ public static class CapstoneWindow {
   [DllImport("user32.dll")] public static extern bool SetWindowPos(IntPtr handle, IntPtr after, int x, int y, int width, int height, uint flags);
   [DllImport("user32.dll")] public static extern bool SetProcessDPIAware();
   [DllImport("user32.dll")] public static extern bool PrintWindow(IntPtr handle, IntPtr hdc, uint flags);
+  [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetWindowText(IntPtr handle, System.Text.StringBuilder text, int count);
 }
 '@
 [CapstoneWindow]::SetProcessDPIAware() | Out-Null
 $script:capstoneHandle = [IntPtr]::Zero
+$script:capstoneArea = 0
+$script:capstoneTitle = ''
 $capstoneCallback = [CapstoneWindow+WindowCallback]{ param($handle, $parameter)
     $capstoneOwner = [uint32]0
     [CapstoneWindow]::GetWindowThreadProcessId($handle, [ref]$capstoneOwner) | Out-Null
     if ($capstoneOwner -eq $BrowserProcessId -and [CapstoneWindow]::IsWindowVisible($handle)) {
-        $script:capstoneHandle = $handle
-        return $false
+        $capstoneTitleBuffer = New-Object System.Text.StringBuilder 1024
+        [CapstoneWindow]::GetWindowText($handle, $capstoneTitleBuffer, 1024) | Out-Null
+        $capstoneCandidateRect = New-Object CapstoneWindow+Rect
+        [CapstoneWindow]::GetWindowRect($handle, [ref]$capstoneCandidateRect) | Out-Null
+        $capstoneCandidateArea = ($capstoneCandidateRect.Right - $capstoneCandidateRect.Left) * ($capstoneCandidateRect.Bottom - $capstoneCandidateRect.Top)
+        if ($capstoneTitleBuffer.ToString() -match ' - (Google Chrome|Microsoft Edge)$' -and $capstoneCandidateArea -gt $script:capstoneArea) {
+            $script:capstoneHandle = $handle
+            $script:capstoneArea = $capstoneCandidateArea
+            $script:capstoneTitle = $capstoneTitleBuffer.ToString()
+        }
     }
     return $true
 }
@@ -63,4 +74,4 @@ try {
     $capstoneBitmap.Dispose()
     [CapstoneWindow]::SetWindowPos($script:capstoneHandle, [IntPtr](-2), 0, 0, 0, 0, 0x0003) | Out-Null
 }
-@{file=$capstoneFullPath;width=$capstoneActualWidth;height=$capstoneActualHeight;method=$capstoneMethod;processId=$BrowserProcessId} | ConvertTo-Json -Compress
+@{file=$capstoneFullPath;width=$capstoneActualWidth;height=$capstoneActualHeight;method=$capstoneMethod;processId=$BrowserProcessId;windowTitle=$script:capstoneTitle} | ConvertTo-Json -Compress

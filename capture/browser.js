@@ -15,6 +15,11 @@ async function launchBrowser() {
   const port = 9336;
   const profile = path.join(root, '.local', 'chrome-' + Date.now());
   fs.mkdirSync(profile, { recursive: true });
+  fs.mkdirSync(path.join(profile, 'Default'), { recursive: true });
+  fs.writeFileSync(path.join(profile, 'Default', 'Preferences'), JSON.stringify({
+    credentials_enable_service: false,
+    profile: { password_manager_enabled: false }
+  }));
   const browserProcess = spawn(chromePath, [
     '--new-window', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
     '--disable-save-password-bubble', '--force-device-scale-factor=1',

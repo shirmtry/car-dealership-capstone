@@ -65,7 +65,7 @@ async function main() {
       await tab.waitFor('Array.from(document.images).every(image => image.complete && image.naturalWidth > 0)', 'Contact image loaded');
       await tab.capture('.local/contact-page.png');
     } else if (group === 'admin') {
-      await tab.goto(local + '/admin/');
+      await tab.goto(local + '/admin/login/?next=/admin/');
       await tab.waitFor('!!document.querySelector("#id_username")', 'real Django admin login form');
       await tab.fill('#id_username', credentials.adminUsername);
       await tab.fill('#id_password', credentials.adminPassword);
