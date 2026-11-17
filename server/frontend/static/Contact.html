@@ -1,50 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | OpenRoad Dealerships</title>
   <link rel="stylesheet" href="/static/bootstrap.min.css">
   <link rel="stylesheet" href="/static/style.css">
-  <title>Contact Us - Dealerships</title>
+  <link rel="stylesheet" href="/static/site.css">
+  <script src="/static/site.js" defer></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
-    <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/contact">Contact Us</a>
-          </li>
-        </ul>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="/">OpenRoad<small>Car Dealerships</small></a>
+      <div class="nav-links">
+        <a href="/">Home</a><a href="/dealers">Dealerships</a><a href="/about">About Us</a>
+        <a class="active" aria-current="page" href="/contact">Contact Us</a>
       </div>
+      <div class="auth-links" data-auth><a href="/login">Login</a><a href="/register">Register</a></div>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="eyebrow">Let's talk</p>
+    <h1>Contact Us</h1>
+    <p class="lead-copy">Need help finding a dealership, sharing a review or choosing
+      your next car? Our team is ready to help.</p>
+    <div class="contact-grid">
+      <img class="contact-image" src="/static/contactus.png" alt="Contact the OpenRoad customer service team">
+      <section class="contact-details" aria-label="Contact details">
+        <h2>Get in touch</h2>
+        <dl>
+          <dt>Address</dt><dd>1200 Harbor Drive, Suite 400<br>Jersey City, NJ 07302, United States</dd>
+          <dt>Phone</dt><dd><a href="tel:+12015550148">+1 (201) 555-0148</a></dd>
+          <dt>Support</dt><dd><a href="mailto:support@openroad.example">support@openroad.example</a></dd>
+          <dt>Sales</dt><dd><a href="mailto:sales@openroad.example">sales@openroad.example</a></dd>
+          <dt>Hours</dt><dd>Monday - Saturday<br>9:00 AM - 7:00 PM Eastern Time<br>Closed on Sunday</dd>
+        </dl>
+        <a class="button" href="/dealers">Explore Dealerships</a>
+      </section>
     </div>
-  </nav>
-
-  <div class="card" style="width: 80%; margin: auto; margin-top: 5%;">
-    <div class="banner">
-      <h1>Contact Us</h1>
-      <p>We are here to help you find the right dealer and the right car.</p>
-    </div>
-    <div style="display: flex; flex-direction: row; margin: auto; width: 90%;">
-      <div style="width: 50%; padding: 20px;">
-        <img src="/static/contactus.png" alt="Contact Dealerships" style="width: 100%;">
-      </div>
-      <div style="width: 50%; padding: 20px;">
-        <h3>Get in touch</h3>
-        <p class="details"><strong>Address:</strong> 1200 Harbor Drive, Suite 400, Jersey City, NJ 07302</p>
-        <p class="details"><strong>Phone:</strong> +1 (201) 555-0148</p>
-        <p class="details"><strong>Email:</strong> support@dealerships.com</p>
-        <p class="details"><strong>Sales:</strong> sales@dealerships.com</p>
-        <p class="details"><strong>Hours:</strong> Monday - Saturday, 9:00 AM - 7:00 PM</p>
-      </div>
-    </div>
-  </div>
+  </main>
+  <footer class="site-footer">OpenRoad capstone demo. Contact details are illustrative.</footer>
 </body>
 </html>
