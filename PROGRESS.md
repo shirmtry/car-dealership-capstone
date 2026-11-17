@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T15:11:32+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T15:48:22+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -46,7 +46,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T20 | screenshots/dealer_id_reviews.png | DONE | Inspected native Chrome /dealer/15 showing Tempsoft details, three real seed reviews and VADER sentiment. |
 | T21 | screenshots/dealership_review_submission.png | DONE | Inspected actual /postreview/15 form before submission, filled with review text, Audi A6, 2021 and 2026-11-10. |
 | T22 | screenshots/added_review.png | DONE | Review 51 was posted through React, saved in MongoDB and inspected in the native dealer page screenshot with positive sentiment. |
-| T23 | CICD | PENDING | Public repo is pushed; implementing flake8/JSHint CI and waiting for a real green Actions run. |
+| T23 | CICD | DONE | Actions run 44113284822 succeeded for source commit 56519483de8d92962f059dd0a9f42d1335378844. CICD contains the exact gh command followed by unmodified real stdout. Flake8, JSHint/JSX lint, Django/NLTK/MongoDB tests, React build and container smoke checks passed; django_server retains the required startup line and live /health returns HTTP 200. |
 | T24 | deploymentURL | BLOCKED | Hosting account/login or free-host selection needed; no deployment verified. |
 | T25 | screenshots/deployed_landingpage.png | BLOCKED | Requires T24 and a real public landing page. |
 | T26 | screenshots/deployed_loggedin.png | BLOCKED | Requires T24 and a real public login session. |
@@ -55,7 +55,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 
 ## Resume instructions
 
-Current checkpoint: public repository is https://github.com/shirmtry/car-dealership-capstone (main), pushed through T16. `.venv` and dependencies are installed; migrations pass. Real Express/MongoDB serves 50 dealers and seed reviews on 3030. NLTK VADER serves 5050. Django serves the successfully compiled React build on 8000 with static files collected; `/health` verifies all three services. CarMake/CarModel have been seeded (5 makes, 58 models). Private throwaway credentials and process records are in ignored `.local/`. Fresh evidence is extensionless. `capture/real_screens.js` drives an isolated headed Chrome and captures its actual native window via PowerShell; it is ready for UI validation. The task tool returned `No invocation context` and the browser connector reported no access host, so the checked-in launch/capture scripts are used. Hosting selection/account access is still pending; no public deployment is claimed.
+Current checkpoint: public repository is https://github.com/shirmtry/car-dealership-capstone (main). T1-T22 are complete and pushed; T23 now has verified green CI evidence for the current source commit. `.venv` and dependencies are installed; migrations pass. Real Express/MongoDB serves 50 dealers and seed reviews on 3030. NLTK VADER serves 5050. Django serves the successfully compiled React build on 8000 with static files collected; `/health` verifies all three services. CarMake/CarModel have been seeded (5 makes, 58 models). Private throwaway credentials and process records are in ignored `.local/`. Fresh evidence is extensionless. `capture/real_screens.js` drives an isolated headed Chrome and captures its actual native window via PowerShell; it is ready for UI validation. The task tool returned `No invocation context` and the browser connector reported no access host, so the checked-in launch/capture scripts are used. Hosting selection/account access is still pending; no public deployment is claimed.
 
 1. Read this file and `git status --short`; do not recreate completed work.
 2. Use the configured interpreter or the repository `.venv`; never rely on the Store `python` alias.
@@ -63,3 +63,12 @@ Current checkpoint: public repository is https://github.com/shirmtry/car-dealers
 4. Save exact real cURL commands in standard bash form followed by raw output in extensionless files. Never include session cookies or secrets in commits.
 5. View every screenshot before marking its task DONE. Never use a wrapper or altered image as an address bar.
 6. Complete `submission/ANSWERS.md` with actual public GitHub links and verified deployment URL; label external blockers explicitly.
+
+## T23 verification (2026-11-17)
+
+- Latest run from `gh run list --repo shirmtry/car-dealership-capstone --limit 5`: completed/success, run **44113284822**, duration **2m33s**.
+- Run URL: https://github.com/shirmtry/car-dealership-capstone/actions/runs/44113284822. Both jobs and all lint, test, build and real container checks succeeded for commit `56519483de8d92962f059dd0a9f42d1335378844`.
+- [CICD](./CICD) preserves `gh run view 44113284822 --repo shirmtry/car-dealership-capstone --log` followed by the complete raw stdout, captured again during this task and verified against the saved file.
+- [django_server](./django_server) still contains `Starting development server at http://127.0.0.1:8000/`. A live `curl.exe --max-time 15 -i http://127.0.0.1:8000/health` returned HTTP 200 with status `ok`, MongoDB backend `ok`, and NLTK VADER `ok`.
+- The workflow ignores evidence/progress-only pushes; this T23 commit does not change the tested application source.
+- Stop after T23 and await the user's next instruction. T24-T28 remain untouched.
