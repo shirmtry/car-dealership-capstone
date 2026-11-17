@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T14:43:43+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T14:45:32+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -31,7 +31,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T5 | loginuser | DONE | loginuser contains a real successful POST with the throwaway capstonetester account and a cookie jar. |
 | T6 | logoutuser | DONE | logoutuser contains a real POST logout using cookies.txt from T5, confirmed Logged out. |
 | T7 | server/frontend/src/components/Register/Register.jsx | PENDING | Existing form has required fields; fix session behavior and verify through UI. |
-| T8 | getdealerreviews | PENDING | Capture reviews through Django and the real backend. |
+| T8 | getdealerreviews | DONE | Live Django proxy returns seeded dealer 15 reviews from Express/MongoDB with NLTK sentiment. |
 | T9 | getalldealers | PENDING | Capture all dealers through Django and the real backend. |
 | T10 | getdealerbyid | PENDING | Capture a dealer through Django and the real backend. |
 | T11 | getdealersbyState | PENDING | Kansas exists in template data; capture through the real backend. |
