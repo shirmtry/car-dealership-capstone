@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T14:45:50+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T14:45:54+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -39,7 +39,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T13 | screenshots/admin_logout.png | PENDING | Recapture the real Logged out admin page; inspect the image. |
 | T14 | getallcarmakes (makes) | DONE | getallcarmakes contains 5 real Django ORM CarMake records; admin registration and idempotent populate.py are present. |
 | T15 | getallcarmakes (models) | DONE | The same live get_cars response includes 58 CarModel records linked to their makes. |
-| T16 | analyzereview | PENDING | Implement NLTK VADER and capture positive sentiment from its live endpoint. |
+| T16 | analyzereview | DONE | Real NLTK VADER on 5050 returns positive for Fantastic services; analyzereview preserves the exact curl output. |
 | T17 | screenshots/get_dealers.png | PENDING | Recapture the logged-out dealers page directly. |
 | T18 | screenshots/get_dealers_loggedin.png | PENDING | Real headed browser address bar, username and Review Dealer option required. |
 | T19 | screenshots/dealersbystate.png | PENDING | Real headed browser address bar and state filtering required. |
