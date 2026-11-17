@@ -1,78 +1,65 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Link the style sheet here -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | OpenRoad Dealerships</title>
   <link rel="stylesheet" href="/static/bootstrap.min.css">
   <link rel="stylesheet" href="/static/style.css">
-  <title>About Us - Dealerships</title>
+  <link rel="stylesheet" href="/static/site.css">
+  <script src="/static/site.js" defer></script>
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
-    <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
-          </li>
-        </ul>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="/">OpenRoad<small>Car Dealerships</small></a>
+      <div class="nav-links">
+        <a href="/">Home</a><a href="/dealers">Dealerships</a>
+        <a class="active" aria-current="page" href="/about">About Us</a>
+        <a href="/contact">Contact Us</a>
       </div>
-    </div>
-  </nav>
-
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-        <h1>About Us</h1>
-        <p>Dealerships is a nationwide network of trusted car dealerships.
-          We help buyers compare dealers, read real customer reviews, and
-          purchase with confidence.</p>
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/team_ayesha.jpg" alt="Ayesha Kapoor">
-        <div class="card-body">
-          <p class="title">Ayesha Kapoor</p>
-          <p>General Manager</p>
-          <p class="card-text">Ayesha leads the dealership network and has
-            over 12 years of experience in automotive retail operations.</p>
-          <p>ayesha.kapoor@dealerships.com</p>
+      <div class="auth-links" data-auth><a href="/login">Login</a><a href="/register">Register</a></div>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="eyebrow">Our people</p>
+    <h1>About Us</h1>
+    <p class="lead-copy">A better car journey starts with a dealer you can trust.
+      OpenRoad connects buyers with dealerships across the United States,
+      making customer experiences easier to compare and share.</p>
+    <div class="team-grid">
+      <article class="profile-card">
+        <img class="team-photo" src="/static/team/daniel.png" alt="Synthetic portrait for fictional team member Daniel Hayes">
+        <div class="profile-body">
+          <h2>Daniel Hayes</h2><p class="role">General Manager</p>
+          <p>Daniel brings 18 years of automotive retail experience to our network.
+            He helps partner dealerships improve service and keeps our customers
+            at the center of every decision.</p>
+          <a href="mailto:daniel.hayes@openroad.example">daniel.hayes@openroad.example</a>
         </div>
-      </div>
-
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/team_marcus.jpg" alt="Marcus Reed">
-        <div class="card-body">
-          <p class="title">Marcus Reed</p>
-          <p>Sales Director</p>
-          <p class="card-text">Marcus manages partner dealer relationships and
-            helps customers find the right vehicle at the right price.</p>
-          <p>marcus.reed@dealerships.com</p>
+      </article>
+      <article class="profile-card">
+        <img class="team-photo" src="/static/team/marcus.png" alt="Synthetic portrait for fictional team member Marcus Reed">
+        <div class="profile-body">
+          <h2>Marcus Reed</h2><p class="role">Sales Director</p>
+          <p>Marcus works with our dealer partners to make buying a car more
+            transparent. He helps customers compare vehicle choices and
+            supports clear, honest conversations throughout the purchase.</p>
+          <a href="mailto:marcus.reed@openroad.example">marcus.reed@openroad.example</a>
         </div>
-      </div>
-
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/team_elena.jpg" alt="Elena Petrova">
-        <div class="card-body">
-          <p class="title">Elena Petrova</p>
-          <p>Customer Relations Lead</p>
-          <p class="card-text">Elena oversees review quality and customer care,
-            making sure every buyer's voice is heard and addressed.</p>
-          <p>elena.petrova@dealerships.com</p>
+      </article>
+      <article class="profile-card">
+        <img class="team-photo" src="/static/team/elena.png" alt="Synthetic portrait for fictional team member Elena Brooks">
+        <div class="profile-body">
+          <h2>Elena Brooks</h2><p class="role">Customer Relations Lead</p>
+          <p>Elena leads customer support and listens closely to buyer feedback.
+            She helps resolve questions, encourages useful reviews, and makes
+            sure every customer has a voice in our community.</p>
+          <a href="mailto:elena.brooks@openroad.example">elena.brooks@openroad.example</a>
         </div>
-      </div>
+      </article>
     </div>
-    </div>
-    </div>
-
-</div>
-
+  </main>
+  <footer class="site-footer">OpenRoad capstone demo. Team names are fictional and portraits are synthetic.</footer>
+</body>
 </html>

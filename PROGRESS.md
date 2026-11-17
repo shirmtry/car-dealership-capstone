@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T14:28:00+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T14:41:49+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -26,7 +26,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | --- | --- | --- | --- |
 | T1 | README.md | DONE | README contains the project name, description, real backend choice and setup instructions. |
 | T2 | django_server | DONE | django_server records the fresh Django 5.2.19 run and required 127.0.0.1:8000 startup line. |
-| T3 | server/frontend/static/About.html | PENDING | Page exists; verify layout, asset provenance and fictional people. |
+| T3 | server/frontend/static/About.html | DONE | Live /about returns 200; CSS and inspected synthetic team portraits load. Fictional names, roles, bios and emails are present with source credits. |
 | T4 | server/frontend/static/Contact.html | PENDING | Page exists; verify image, CSS, details and active navbar. |
 | T5 | loginuser | PENDING | Capture a valid real JSON login with cookie jar and throwaway credentials. |
 | T6 | logoutuser | PENDING | Capture real logout using the same cookie jar. |
