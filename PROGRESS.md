@@ -47,7 +47,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T21 | screenshots/dealership_review_submission.png | DONE | Inspected actual /postreview/15 form before submission, filled with review text, Audi A6, 2021 and 2026-11-10. |
 | T22 | screenshots/added_review.png | DONE | Review 51 was posted through React, saved in MongoDB and inspected in the native dealer page screenshot with positive sentiment. |
 | T23 | CICD | DONE | Actions run 44113284822 succeeded for source commit 56519483de8d92962f059dd0a9f42d1335378844. CICD contains the exact gh command followed by unmodified real stdout. Flake8, JSHint/JSX lint, Django/NLTK/MongoDB tests, React build and container smoke checks passed; django_server retains the required startup line and live /health returns HTTP 200. |
-| T24 | deploymentURL | BLOCKED | Hosting account/login or free-host selection needed; no deployment verified. |
+| T24 | deploymentURL | BLOCKED | Render free Docker deployment is prepared; awaiting user sign-in and Authorize CLI. No public deployment has been created or verified yet. |
 | T25 | screenshots/deployed_landingpage.png | BLOCKED | Requires T24 and a real public landing page. |
 | T26 | screenshots/deployed_loggedin.png | BLOCKED | Requires T24 and a real public login session. |
 | T27 | screenshots/deployed_dealer_detail.png | BLOCKED | Requires T24 and a reachable public dealer backend. |
@@ -72,3 +72,12 @@ Current checkpoint: public repository is https://github.com/shirmtry/car-dealers
 - [django_server](./django_server) still contains `Starting development server at http://127.0.0.1:8000/`. A live `curl.exe --max-time 15 -i http://127.0.0.1:8000/health` returned HTTP 200 with status `ok`, MongoDB backend `ok`, and NLTK VADER `ok`.
 - The workflow ignores evidence/progress-only pushes; this T23 commit does not change the tested application source.
 - Stop after T23 and await the user's next instruction. T24-T28 remain untouched.
+
+## T24 deployment preparation (2026-11-17)
+
+- The user authorized continuing T24-T28 on Render with the existing [Dockerfile](./Dockerfile) and [render.yaml](./render.yaml), followed by public endpoint checks, native Chrome screenshots and submission answers.
+- The current container starts Django/Gunicorn, Express, NLTK VADER and seeded MongoDB. The recorded green CI run exercised the container at 512 MiB and reported 239.7 MiB usage; an external Atlas database is not currently necessary.
+- Render CLI v2.37.0 was downloaded from the official render-oss/cli GitHub release, with the published SHA256 checksum verified. The executable, auth configuration and helper scripts stay in ignored `.local/`.
+- Browser connector inventory returned `The browser access host is unavailable`. Use the official Render CLI for deployment after the user signs in and authorizes it; use the already-requested headed scripts under [capture/](./capture/) for deployed evidence.
+- T24-T28 remain incomplete. Do not write deploymentURL until the actual Render HTTPS service passes all required curl.exe checks. Inspect each screenshot before marking its task DONE and make a separate commit per completed task.
+- User confirmed Render authorization with "Xong". CLI authentication and the sole workspace are verified. The blueprint validates successfully; evidence/progress paths now use buildFilter.ignoredPaths to prevent unnecessary redeploys on a free container with ephemeral storage. Existing unrelated Render services are preserved.

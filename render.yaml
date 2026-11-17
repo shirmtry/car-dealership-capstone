@@ -6,6 +6,25 @@ services:
     region: singapore
     branch: main
     autoDeploy: true
+    buildFilter:
+      ignoredPaths:
+        - PROGRESS.md
+        - README.md
+        - ASSET_CREDITS.md
+        - CICD
+        - deploymentURL
+        - django_server
+        - loginuser
+        - logoutuser
+        - getdealerreviews
+        - getalldealers
+        - getdealerbyid
+        - getdealersbyState
+        - getallcarmakes
+        - analyzereview
+        - screenshots/**
+        - submission/**
+        - licenses/**
     healthCheckPath: /health
     envVars:
       - key: DJANGO_DEBUG
