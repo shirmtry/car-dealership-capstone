@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T14:41:49+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T14:43:43+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -28,7 +28,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T2 | django_server | DONE | django_server records the fresh Django 5.2.19 run and required 127.0.0.1:8000 startup line. |
 | T3 | server/frontend/static/About.html | DONE | Live /about returns 200; CSS and inspected synthetic team portraits load. Fictional names, roles, bios and emails are present with source credits. |
 | T4 | server/frontend/static/Contact.html | DONE | Live /contact returns 200; inspected contact image and CSS load; Contact Us is active with address, phone, email, sales and opening hours. |
-| T5 | loginuser | PENDING | Capture a valid real JSON login with cookie jar and throwaway credentials. |
+| T5 | loginuser | DONE | loginuser contains a real successful POST with the throwaway capstonetester account and a cookie jar. |
 | T6 | logoutuser | PENDING | Capture real logout using the same cookie jar. |
 | T7 | server/frontend/src/components/Register/Register.jsx | PENDING | Existing form has required fields; fix session behavior and verify through UI. |
 | T8 | getdealerreviews | PENDING | Capture reviews through Django and the real backend. |
