@@ -55,6 +55,8 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 
 ## Resume instructions
 
+Current P0 checkpoint: the recovered code is in this workspace with upstream Git history. `.venv` and dependencies are installed; migrations pass. Real Express/MongoDB serves 50 dealers and 50 seed reviews on 3030. NLTK VADER serves 5050. The fresh Django process serves 8000, and `django_server` contains its real startup output. CarMake/CarModel have been seeded (5 makes, 58 models). Private throwaway credentials and process records are in ignored `.local/`. The task tool returned `No invocation context`; the checked-in PowerShell launcher was executed successfully through the terminal.
+
 1. Read this file and `git status --short`; do not recreate completed work.
 2. Use the configured interpreter or the repository `.venv`; never rely on the Store `python` alias.
 3. Update this file and make a small English commit after each task. Push to the public repository regularly.

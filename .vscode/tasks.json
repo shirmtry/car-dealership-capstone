@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Capstone: Start local services",
+      "type": "shell",
+      "command": "powershell",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "scripts/start-local.ps1"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Capstone: Build React",
+      "type": "shell",
+      "command": "npm.cmd",
+      "args": ["run", "build", "--prefix", "server/frontend"],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Capstone: Django tests",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["manage.py", "test", "djangoapp"],
+      "options": {"cwd": "${workspaceFolder}/server"},
+      "problemMatcher": []
+    }
+  ]
+}

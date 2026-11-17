@@ -1,0 +1,4 @@
+-r server/requirements.txt
+-r server/djangoapp/microservices/requirements.txt
+flake8==7.3.0
+waitress>=3,<4; sys_platform == 'win32'
