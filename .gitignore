@@ -127,3 +127,23 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Private local state and legacy evidence
+.recovery/
+.artifacts/
+.local/
+node_modules/
+cookies.txt
+*.sqlite3
+*.sqlite3-*
+.env.*
+!.env.example
+server/static/
+capture/debug_admin.js
+capture/debug_landing.js
+capture/screens.js
+server/frontend/public/wrapper.html
+server/frontend/static/browser_wrapper.html
+server/frontend/static/team_*.jpg
+mockdb/server.js
+sentiment/app.py
