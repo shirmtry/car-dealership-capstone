@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T15:06:26+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T15:07:49+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -30,7 +30,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T4 | server/frontend/static/Contact.html | DONE | Live /contact returns 200; inspected contact image and CSS load; Contact Us is active with address, phone, email, sales and opening hours. |
 | T5 | loginuser | DONE | loginuser contains a real successful POST with the throwaway capstonetester account and a cookie jar. |
 | T6 | logoutuser | DONE | logoutuser contains a real POST logout using cookies.txt from T5, confirmed Logged out. |
-| T7 | server/frontend/src/components/Register/Register.jsx | PENDING | Controlled required inputs and real registration/session calls compile successfully; headed UI verification remains. |
+| T7 | server/frontend/src/components/Register/Register.jsx | DONE | React registration form was submitted in headed Chrome; a new throwaway user has a verified Django session and visible username/Review Dealer links. Required fields compile and work. |
 | T8 | getdealerreviews | DONE | Live Django proxy returns seeded dealer 15 reviews from Express/MongoDB with NLTK sentiment. |
 | T9 | getalldealers | DONE | Live Django proxy returns all 50 dealers with the required template fields. |
 | T10 | getdealerbyid | DONE | Live Django proxy returns the actual dealer 15 record from MongoDB. |
