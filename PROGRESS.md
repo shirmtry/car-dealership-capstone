@@ -36,7 +36,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T10 | getdealerbyid | DONE | Live Django proxy returns the actual dealer 15 record from MongoDB. |
 | T11 | getdealersbyState | DONE | Live Django proxy filters Kansas and returns Bytecard in Topeka, dealer 8. |
 | T12 | screenshots/admin_login.png | DONE | Inspected native 1440x900 Chrome window: root is logged into /admin and Car makes/Car models are visible. |
-| T13 | screenshots/admin_logout.png | PENDING | Recapture the real Logged out admin page; inspect the image. |
+| T13 | screenshots/admin_logout.png | DONE | Inspected native 1440x900 Chrome window: the real /admin/logout/ page displays Logged out. |
 | T14 | getallcarmakes (makes) | DONE | getallcarmakes contains 5 real Django ORM CarMake records; admin registration and idempotent populate.py are present. |
 | T15 | getallcarmakes (models) | DONE | The same live get_cars response includes 58 CarModel records linked to their makes. |
 | T16 | analyzereview | DONE | Real NLTK VADER on 5050 returns positive for Fantastic services; analyzereview preserves the exact curl output. |
