@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17. This file records verified work, not planned results.
+Last updated: 2026-11-17T14:28:00+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -24,7 +24,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 
 | Task | Required deliverable | Status | Verified evidence / remaining work |
 | --- | --- | --- | --- |
-| T1 | README.md | PENDING | Existing README contains only a template heading; write project description and setup. |
+| T1 | README.md | DONE | README contains the project name, description, real backend choice and setup instructions. |
 | T2 | django_server | PENDING | Real startup line exists in legacy log; capture a fresh run from the recovered repository. |
 | T3 | server/frontend/static/About.html | PENDING | Page exists; verify layout, asset provenance and fictional people. |
 | T4 | server/frontend/static/Contact.html | PENDING | Page exists; verify image, CSS, details and active navbar. |
