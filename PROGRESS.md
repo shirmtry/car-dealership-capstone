@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T16:11:04+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T16:11:05+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -49,7 +49,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T23 | CICD | DONE | Actions run 44113284822 succeeded for source commit 56519483de8d92962f059dd0a9f42d1335378844. CICD contains the exact gh command followed by unmodified real stdout. Flake8, JSHint/JSX lint, Django/NLTK/MongoDB tests, React build and container smoke checks passed; django_server retains the required startup line and live /health returns HTTP 200. |
 | T24 | deploymentURL | DONE | https://openroad-car-dealerships.onrender.com is live on Render Free/Singapore using one Docker container with Django, Express, NLTK VADER and seeded MongoDB. Anonymous curl.exe checks returned HTTP 200 for /health, all 50 dealers, Kansas dealer 8, 5 makes/58 models and the React landing page. |
 | T25 | screenshots/deployed_landingpage.png | DONE | Viewed and verified native 1440x900 Chrome screenshot at https://openroad-car-dealerships.onrender.com/, with the real address bar and the anonymous public landing page. |
-| T26 | screenshots/deployed_loggedin.png | PENDING | Public deployment is verified; capture and image inspection remain. |
+| T26 | screenshots/deployed_loggedin.png | DONE | Viewed and verified native 1440x900 Chrome screenshot at https://openroad-car-dealerships.onrender.com/dealers, with the real address bar and a real registered Django session with visible username deploy_capstone_1794931790161. |
 | T27 | screenshots/deployed_dealer_detail.png | PENDING | Public deployment is verified; capture and image inspection remain. |
 | T28 | screenshots/deployed_add_review.png | PENDING | Public deployment is verified; capture and image inspection remain. |
 
