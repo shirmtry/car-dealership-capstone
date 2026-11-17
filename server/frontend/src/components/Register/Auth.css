@@ -1,0 +1,10 @@
+.auth-card { max-width: 590px; margin: 12px auto 32px; padding: 30px; border: 1px solid var(--line); border-radius: 12px; background: white; }
+.auth-card h1 { font-size: 29px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 17px; font-size: 14px; font-weight: 600; }
+.field input, .field select, .field textarea { width: 100%; padding: 11px 12px; border: 1px solid #c6d5dd; border-radius: 6px; color: var(--ink); font-size: 15px; font-weight: 400; background: white; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid #9bcdd4; outline-offset: 1px; }
+.field textarea { min-height: 120px; resize: vertical; }
+.form-hint { font-size: 13px; color: var(--muted); margin: 18px 0 0; }
+.auth-card .button { width: 100%; }
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; gap: 0; } .auth-card { padding: 22px; } }

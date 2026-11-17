@@ -30,7 +30,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T4 | server/frontend/static/Contact.html | DONE | Live /contact returns 200; inspected contact image and CSS load; Contact Us is active with address, phone, email, sales and opening hours. |
 | T5 | loginuser | DONE | loginuser contains a real successful POST with the throwaway capstonetester account and a cookie jar. |
 | T6 | logoutuser | DONE | logoutuser contains a real POST logout using cookies.txt from T5, confirmed Logged out. |
-| T7 | server/frontend/src/components/Register/Register.jsx | PENDING | Existing form has required fields; fix session behavior and verify through UI. |
+| T7 | server/frontend/src/components/Register/Register.jsx | PENDING | Controlled required inputs and real registration/session calls compile successfully; headed UI verification remains. |
 | T8 | getdealerreviews | DONE | Live Django proxy returns seeded dealer 15 reviews from Express/MongoDB with NLTK sentiment. |
 | T9 | getalldealers | DONE | Live Django proxy returns all 50 dealers with the required template fields. |
 | T10 | getdealerbyid | DONE | Live Django proxy returns the actual dealer 15 record from MongoDB. |
@@ -55,7 +55,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 
 ## Resume instructions
 
-Current P0 checkpoint: the recovered code is in this workspace with upstream Git history. `.venv` and dependencies are installed; migrations pass. Real Express/MongoDB serves 50 dealers and 50 seed reviews on 3030. NLTK VADER serves 5050. The fresh Django process serves 8000, and `django_server` contains its real startup output. CarMake/CarModel have been seeded (5 makes, 58 models). Private throwaway credentials and process records are in ignored `.local/`. The task tool returned `No invocation context`; the checked-in PowerShell launcher was executed successfully through the terminal.
+Current checkpoint: public repository is https://github.com/shirmtry/car-dealership-capstone (main), pushed through T16. `.venv` and dependencies are installed; migrations pass. Real Express/MongoDB serves 50 dealers and seed reviews on 3030. NLTK VADER serves 5050. Django serves the successfully compiled React build on 8000 with static files collected; `/health` verifies all three services. CarMake/CarModel have been seeded (5 makes, 58 models). Private throwaway credentials and process records are in ignored `.local/`. Fresh evidence is extensionless. `capture/real_screens.js` drives an isolated headed Chrome and captures its actual native window via PowerShell; it is ready for UI validation. The task tool returned `No invocation context` and the browser connector reported no access host, so the checked-in launch/capture scripts are used. Hosting selection/account access is still pending; no public deployment is claimed.
 
 1. Read this file and `git status --short`; do not recreate completed work.
 2. Use the configured interpreter or the repository `.venv`; never rely on the Store `python` alias.

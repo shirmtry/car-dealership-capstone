@@ -1,74 +1,48 @@
 import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { api } from '../../api';
+import { useAuth } from '../../AuthContext';
 
-import "./Login.css";
-import Header from '../Header/Header';
-
-const Login = ({ onClose }) => {
-
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [open,setOpen] = useState(true)
-
-  let login_url = window.location.origin+"/djangoapp/login";
-
-  const login = async (e) => {
-    e.preventDefault();
-
-    const res = await fetch(login_url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            "userName": userName,
-            "password": password
-        }),
-    });
-    
-    const json = await res.json();
-    if (json.status != null && json.status === "Authenticated") {
-        sessionStorage.setItem('username', json.userName);
-        setOpen(false);        
+export default function Login() {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [busy, setBusy] = useState(false);
+  const { refreshSession } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const login = async (event) => {
+    event.preventDefault();
+    setBusy(true);
+    setError('');
+    try {
+      await api('login', {
+        method: 'POST', body: JSON.stringify({ userName, password })
+      });
+      await refreshSession();
+      navigate(location.state?.from || '/dealers', { replace: true });
+    } catch (failure) {
+      setError(failure.message);
+      setBusy(false);
     }
-    else {
-      alert("The user could not be authenticated.")
-    }
-};
-
-  if (!open) {
-    window.location.href = "/";
   };
-  
-
-  return (
-    <div>
-      <Header/>
-    <div onClick={onClose}>
-      <div
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        className='modalContainer'
-      >
-          <form className="login_panel" style={{}} onSubmit={login}>
-              <div>
-              <span className="input_field">Username </span>
-              <input type="text"  name="username" placeholder="Username" className="input_field" onChange={(e) => setUserName(e.target.value)}/>
-              </div>
-              <div>
-              <span className="input_field">Password </span>
-              <input name="psw" type="password"  placeholder="Password" className="input_field" onChange={(e) => setPassword(e.target.value)}/>            
-              </div>
-              <div>
-              <input className="action_button" type="submit" value="Login"/>
-              <input className="action_button" type="button" value="Cancel" onClick={()=>setOpen(false)}/>
-              </div>
-              <a className="loginlink" href="/register">Register Now</a>
-          </form>
-      </div>
-    </div>
-    </div>
-  );
-};
-
-export default Login;
+  return <main className="page">
+    <section className="auth-card">
+      <p className="eyebrow">Welcome back</p><h1>Login</h1>
+      <p className="lead-copy">Sign in to share a dealership review.</p>
+      <form onSubmit={login}>
+        <label className="field" htmlFor="login-username">Username
+          <input id="login-username" name="username" autoComplete="username"
+            value={userName} onChange={(event) => setUserName(event.target.value)} required />
+        </label>
+        <label className="field" htmlFor="login-password">Password
+          <input id="login-password" name="password" type="password" autoComplete="current-password"
+            value={password} onChange={(event) => setPassword(event.target.value)} required />
+        </label>
+        {error && <p className="notice error" role="alert">{error}</p>}
+        <button type="submit" className="button" disabled={busy}>{busy ? 'Signing in...' : 'Login'}</button>
+      </form>
+      <p className="form-hint">New to OpenRoad? <Link to="/register">Register</Link></p>
+    </section>
+  </main>;
+}

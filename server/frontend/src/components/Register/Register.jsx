@@ -1,97 +1,84 @@
 import React, { useState } from 'react';
-import "./Register.css";
-import "../assets/style.css";
-import "../assets/bootstrap.min.css";
-import Header from '../Header/Header';
-import person_icon from "../assets/person.png";
-import email_icon from "../assets/email.png";
-import password_icon from "../assets/password.png";
-import confirm_icon from "../assets/password confirm.png";
+import { Link, useNavigate } from 'react-router-dom';
+import { api } from '../../api';
+import { useAuth } from '../../AuthContext';
+import './Auth.css';
 
-const Register = () => {
-  const [userName, setUserName] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const register = async (e) => {
-    e.preventDefault();
-
-    if (password !== confirmPassword) {
-      alert("The passwords do not match.");
+export default function Register() {
+  const [form, setForm] = useState({
+    userName: '', firstName: '', lastName: '', email: '',
+    password: '', confirmPassword: ''
+  });
+  const [error, setError] = useState('');
+  const [busy, setBusy] = useState(false);
+  const { refreshSession } = useAuth();
+  const navigate = useNavigate();
+  const update = (event) => {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  };
+  const register = async (event) => {
+    event.preventDefault();
+    setError('');
+    if (form.password !== form.confirmPassword) {
+      setError('The passwords do not match.');
       return;
     }
-
-    const res = await fetch("/djangoapp/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        "userName": userName,
-        "firstName": firstName,
-        "lastName": lastName,
-        "email": email,
-        "password": password,
-      }),
-    });
-
-    const json = await res.json();
-    if (json.status != null && json.status === "Authenticated") {
-      sessionStorage.setItem('username', json.userName);
-      sessionStorage.setItem('firstname', firstName);
-      sessionStorage.setItem('lastname', lastName);
-      window.location.href = "/";
-    } else {
-      alert("The user could not be registered. " + (json.error || ""));
+    setBusy(true);
+    try {
+      const data = {
+        userName: form.userName, firstName: form.firstName, lastName: form.lastName,
+        email: form.email, password: form.password
+      };
+      await api('register', { method: 'POST', body: JSON.stringify(data) });
+      await refreshSession();
+      navigate('/dealers', { replace: true });
+    } catch (failure) {
+      setError(failure.message);
+      setBusy(false);
     }
   };
-
-  return (
-    <div>
-      <Header />
-      <div className="register_container">
-        <h1 className="header">Sign-up</h1>
-        <form className="inputs" onSubmit={register}>
-          <div className="input">
-            <img src={person_icon} className="img_icon" alt="Username" />
-            <input type="text" name="username" placeholder="Username"
-              className="input_field" onChange={(e) => setUserName(e.target.value)} />
-          </div>
-          <div className="input">
-            <img src={person_icon} className="img_icon" alt="First Name" />
-            <input type="text" name="firstname" placeholder="First Name"
-              className="input_field" onChange={(e) => setFirstName(e.target.value)} />
-          </div>
-          <div className="input">
-            <img src={person_icon} className="img_icon" alt="Last Name" />
-            <input type="text" name="lastname" placeholder="Last Name"
-              className="input_field" onChange={(e) => setLastName(e.target.value)} />
-          </div>
-          <div className="input">
-            <img src={email_icon} className="img_icon" alt="Email" />
-            <input type="email" name="email" placeholder="Email"
-              className="input_field" onChange={(e) => setEmail(e.target.value)} />
-          </div>
-          <div className="input">
-            <img src={password_icon} className="img_icon" alt="Password" />
-            <input type="password" name="psw" placeholder="Password"
-              className="input_field" onChange={(e) => setPassword(e.target.value)} />
-          </div>
-          <div className="input">
-            <img src={confirm_icon} className="img_icon" alt="Confirm Password" />
-            <input type="password" name="psw-confirm" placeholder="Confirm Password"
-              className="input_field" onChange={(e) => setConfirmPassword(e.target.value)} />
-          </div>
-          <div className="submit_panel">
-            <button type="submit" className="submit">Register</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-export default Register;
+  return <main className="page">
+    <section className="auth-card">
+      <p className="eyebrow">Join OpenRoad</p>
+      <h1>Create an account</h1>
+      <p className="lead-copy">Share your experience and help the next car buyer.</p>
+      <form onSubmit={register}>
+        <label className="field" htmlFor="register-username">Username
+          <input id="register-username" name="userName" autoComplete="username"
+            value={form.userName} onChange={update} maxLength={150} required />
+        </label>
+        <div className="form-grid">
+          <label className="field" htmlFor="register-firstname">First Name
+            <input id="register-firstname" name="firstName" autoComplete="given-name"
+              value={form.firstName} onChange={update} maxLength={150} required />
+          </label>
+          <label className="field" htmlFor="register-lastname">Last Name
+            <input id="register-lastname" name="lastName" autoComplete="family-name"
+              value={form.lastName} onChange={update} maxLength={150} required />
+          </label>
+        </div>
+        <label className="field" htmlFor="register-email">Email
+          <input id="register-email" name="email" type="email" autoComplete="email"
+            value={form.email} onChange={update} required />
+        </label>
+        <div className="form-grid">
+          <label className="field" htmlFor="register-password">Password
+            <input id="register-password" name="password" type="password"
+              autoComplete="new-password" minLength={8} value={form.password}
+              onChange={update} required />
+          </label>
+          <label className="field" htmlFor="register-confirm">Confirm Password
+            <input id="register-confirm" name="confirmPassword" type="password"
+              autoComplete="new-password" minLength={8} value={form.confirmPassword}
+              onChange={update} required />
+          </label>
+        </div>
+        {error && <p className="notice error" role="alert">{error}</p>}
+        <button className="button" type="submit" disabled={busy}>
+          {busy ? 'Creating account...' : 'Register'}
+        </button>
+      </form>
+      <p className="form-hint">Already registered? <Link to="/login">Login</Link></p>
+    </section>
+  </main>;
+}
