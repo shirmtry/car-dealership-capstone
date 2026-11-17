@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T15:11:31+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T15:11:32+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -45,7 +45,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T19 | screenshots/dealersbystate.png | DONE | Inspected native Chrome URL /dealers?state=Kansas and the actual Topeka/Bytecard filtered record. |
 | T20 | screenshots/dealer_id_reviews.png | DONE | Inspected native Chrome /dealer/15 showing Tempsoft details, three real seed reviews and VADER sentiment. |
 | T21 | screenshots/dealership_review_submission.png | DONE | Inspected actual /postreview/15 form before submission, filled with review text, Audi A6, 2021 and 2026-11-10. |
-| T22 | screenshots/added_review.png | PENDING | Submit through the UI, persist in MongoDB and capture the visible review. |
+| T22 | screenshots/added_review.png | DONE | Review 51 was posted through React, saved in MongoDB and inspected in the native dealer page screenshot with positive sentiment. |
 | T23 | CICD | BLOCKED | Public repository selection/push needed for a real green GitHub Actions run. |
 | T24 | deploymentURL | BLOCKED | Hosting account/login or free-host selection needed; no deployment verified. |
 | T25 | screenshots/deployed_landingpage.png | BLOCKED | Requires T24 and a real public landing page. |
