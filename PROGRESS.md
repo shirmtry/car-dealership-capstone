@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T15:48:22+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T16:09:44+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -47,15 +47,15 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T21 | screenshots/dealership_review_submission.png | DONE | Inspected actual /postreview/15 form before submission, filled with review text, Audi A6, 2021 and 2026-11-10. |
 | T22 | screenshots/added_review.png | DONE | Review 51 was posted through React, saved in MongoDB and inspected in the native dealer page screenshot with positive sentiment. |
 | T23 | CICD | DONE | Actions run 44113284822 succeeded for source commit 56519483de8d92962f059dd0a9f42d1335378844. CICD contains the exact gh command followed by unmodified real stdout. Flake8, JSHint/JSX lint, Django/NLTK/MongoDB tests, React build and container smoke checks passed; django_server retains the required startup line and live /health returns HTTP 200. |
-| T24 | deploymentURL | BLOCKED | Render free Docker deployment is prepared; awaiting user sign-in and Authorize CLI. No public deployment has been created or verified yet. |
-| T25 | screenshots/deployed_landingpage.png | BLOCKED | Requires T24 and a real public landing page. |
-| T26 | screenshots/deployed_loggedin.png | BLOCKED | Requires T24 and a real public login session. |
-| T27 | screenshots/deployed_dealer_detail.png | BLOCKED | Requires T24 and a reachable public dealer backend. |
-| T28 | screenshots/deployed_add_review.png | BLOCKED | Requires T24 and a review actually posted on the public app. |
+| T24 | deploymentURL | DONE | https://openroad-car-dealerships.onrender.com is live on Render Free/Singapore using one Docker container with Django, Express, NLTK VADER and seeded MongoDB. Anonymous curl.exe checks returned HTTP 200 for /health, all 50 dealers, Kansas dealer 8, 5 makes/58 models and the React landing page. |
+| T25 | screenshots/deployed_landingpage.png | PENDING | Public deployment is verified; capture and image inspection remain. |
+| T26 | screenshots/deployed_loggedin.png | PENDING | Public deployment is verified; capture and image inspection remain. |
+| T27 | screenshots/deployed_dealer_detail.png | PENDING | Public deployment is verified; capture and image inspection remain. |
+| T28 | screenshots/deployed_add_review.png | PENDING | Public deployment is verified; capture and image inspection remain. |
 
 ## Resume instructions
 
-Current checkpoint: public repository is https://github.com/shirmtry/car-dealership-capstone (main). T1-T22 are complete and pushed; T23 now has verified green CI evidence for the current source commit. `.venv` and dependencies are installed; migrations pass. Real Express/MongoDB serves 50 dealers and seed reviews on 3030. NLTK VADER serves 5050. Django serves the successfully compiled React build on 8000 with static files collected; `/health` verifies all three services. CarMake/CarModel have been seeded (5 makes, 58 models). Private throwaway credentials and process records are in ignored `.local/`. Fresh evidence is extensionless. `capture/real_screens.js` drives an isolated headed Chrome and captures its actual native window via PowerShell; it is ready for UI validation. The task tool returned `No invocation context` and the browser connector reported no access host, so the checked-in launch/capture scripts are used. Hosting selection/account access is still pending; no public deployment is claimed.
+Current checkpoint: public repository is https://github.com/shirmtry/car-dealership-capstone (main). T1-T22 are complete and pushed; T23 now has verified green CI evidence for the current source commit. `.venv` and dependencies are installed; migrations pass. Real Express/MongoDB serves 50 dealers and seed reviews on 3030. NLTK VADER serves 5050. Django serves the successfully compiled React build on 8000 with static files collected; `/health` verifies all three services. CarMake/CarModel have been seeded (5 makes, 58 models). Private throwaway credentials and process records are in ignored `.local/`. Fresh evidence is extensionless. `capture/real_screens.js` drives an isolated headed Chrome and captures its actual native window via PowerShell; it is ready for UI validation. The task tool returned `No invocation context` and the browser connector reported no access host, so the checked-in launch/capture scripts are used. The verified public Render URL is https://openroad-car-dealerships.onrender.com. Deployment screenshots and submission answers are the next steps. Render Free storage is ephemeral; evidence-only commits are excluded from automatic deploys.
 
 1. Read this file and `git status --short`; do not recreate completed work.
 2. Use the configured interpreter or the repository `.venv`; never rely on the Store `python` alias.
@@ -81,3 +81,10 @@ Current checkpoint: public repository is https://github.com/shirmtry/car-dealers
 - Browser connector inventory returned `The browser access host is unavailable`. Use the official Render CLI for deployment after the user signs in and authorizes it; use the already-requested headed scripts under [capture/](./capture/) for deployed evidence.
 - T24-T28 remain incomplete. Do not write deploymentURL until the actual Render HTTPS service passes all required curl.exe checks. Inspect each screenshot before marking its task DONE and make a separate commit per completed task.
 - User confirmed Render authorization with "Xong". CLI authentication and the sole workspace are verified. The blueprint validates successfully; evidence/progress paths now use buildFilter.ignoredPaths to prevent unnecessary redeploys on a free container with ephemeral storage. Existing unrelated Render services are preserved.
+
+## T24 verified deployment
+
+- Public URL: https://openroad-car-dealerships.onrender.com. Verified at 2026-11-17T16:08:27.789Z with anonymous curl.exe requests.
+- One free Render Docker service in Singapore runs all four required services. The existing blueprint and Dockerfile are used; Atlas is unnecessary for this demo.
+- Real response checks: 50 dealerships; Kansas contains Bytecard/Topeka, dealer 8; Django ORM returns 5 makes and 58 models; backend MongoDB and NLTK VADER health both report ok.
+- Render Free has ephemeral filesystem storage: users and newly posted reviews can reset on a service restart or sleep. Seed records are restored automatically. Evidence/progress pushes are filtered to avoid needless redeploys.
