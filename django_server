@@ -1,0 +1,15 @@
+python -u manage.py runserver 127.0.0.1:8000 --noreload
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 17, 2026 - 21:25:18
+Django version 5.2.19, using settings 'djangoproj.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+[17/Nov/2026 21:25:18] "GET /djangoapp/session HTTP/1.1" 200 26
+[17/Nov/2026 21:25:18,998] - Broken pipe from ('127.0.0.1', 64477)
+[17/Nov/2026 21:25:22] "GET /djangoapp/get_dealers/Kansas HTTP/1.1" 200 234
+[17/Nov/2026 21:25:22] "GET /djangoapp/reviews/dealer/8 HTTP/1.1" 200 30

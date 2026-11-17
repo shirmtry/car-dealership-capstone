@@ -25,7 +25,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | Task | Required deliverable | Status | Verified evidence / remaining work |
 | --- | --- | --- | --- |
 | T1 | README.md | DONE | README contains the project name, description, real backend choice and setup instructions. |
-| T2 | django_server | PENDING | Real startup line exists in legacy log; capture a fresh run from the recovered repository. |
+| T2 | django_server | DONE | django_server records the fresh Django 5.2.19 run and required 127.0.0.1:8000 startup line. |
 | T3 | server/frontend/static/About.html | PENDING | Page exists; verify layout, asset provenance and fictional people. |
 | T4 | server/frontend/static/Contact.html | PENDING | Page exists; verify image, CSS, details and active navbar. |
 | T5 | loginuser | PENDING | Capture a valid real JSON login with cookie jar and throwaway credentials. |
