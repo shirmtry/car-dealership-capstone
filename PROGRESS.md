@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T16:11:06+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T16:11:07+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -51,7 +51,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T25 | screenshots/deployed_landingpage.png | DONE | Viewed and verified native 1440x900 Chrome screenshot at https://openroad-car-dealerships.onrender.com/, with the real address bar and the anonymous public landing page. |
 | T26 | screenshots/deployed_loggedin.png | DONE | Viewed and verified native 1440x900 Chrome screenshot at https://openroad-car-dealerships.onrender.com/dealers, with the real address bar and a real registered Django session with visible username deploy_capstone_1794931790161. |
 | T27 | screenshots/deployed_dealer_detail.png | DONE | Viewed and verified native 1440x900 Chrome screenshot at https://openroad-car-dealerships.onrender.com/dealer/15, with the real address bar and Tempsoft dealer 15 with real seeded reviews and sentiment. |
-| T28 | screenshots/deployed_add_review.png | PENDING | Public deployment is verified; capture and image inspection remain. |
+| T28 | screenshots/deployed_add_review.png | DONE | Viewed and verified native 1440x900 Chrome screenshot at https://openroad-car-dealerships.onrender.com/dealer/15?added=51, with the real address bar and the review actually submitted through the deployed React UI: Fantastic services on the deployed app. Friendly staff and a smooth car purchase.. |
 
 ## Resume instructions
 
