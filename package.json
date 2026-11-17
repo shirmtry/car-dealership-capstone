@@ -1,0 +1,12 @@
+{
+  "name": "openroad-capstone-tooling",
+  "version": "1.0.0",
+  "private": true,
+  "description": "JSHint validation for the IBM dealership capstone",
+  "scripts": { "lint:js": "node scripts/lint-js.cjs" },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/plugin-transform-react-jsx": "^7.27.1",
+    "jshint": "^2.13.6"
+  }
+}

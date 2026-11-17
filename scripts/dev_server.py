@@ -17,10 +17,14 @@ def main():
             args, cwd=root / 'server', stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
         ) as process:
+            startup_complete = False
             try:
                 for line in iter(process.stdout.readline, b''):
-                    transcript.write(line)
-                    transcript.flush()
+                    if not startup_complete:
+                        transcript.write(line)
+                        transcript.flush()
+                        if b'Quit the server with' in line:
+                            startup_complete = True
                     sys.stdout.buffer.write(line)
                     sys.stdout.buffer.flush()
                 return process.wait()

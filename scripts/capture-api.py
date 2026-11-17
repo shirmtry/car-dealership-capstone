@@ -57,8 +57,9 @@ def capture(name, url, method='GET', payload=None, cookies=None):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--task', choices=['T5', 'T6', 'T8', 'T9', 'T10',
-                                         'T11', 'T14', 'T15', 'T16', 'all'])
+    allowed_tasks = ['T5', 'T6', 'T8', 'T9', 'T10', 'T11',
+                     'T14', 'T15', 'T16', 'all']
+    parser.add_argument('--task', choices=allowed_tasks)
     parser.add_argument('--base-url', default='http://127.0.0.1:8000')
     parser.add_argument('--sentiment-url', default='http://127.0.0.1:5050')
     args = parser.parse_args()
