@@ -1,6 +1,6 @@
 # IBM Full Stack Developer Capstone Progress
 
-Last updated: 2026-11-17T15:11:25+00:00. Only verified work is marked DONE.
+Last updated: 2026-11-17T15:11:27+00:00. Only verified work is marked DONE.
 
 ## Recovery checkpoint
 
@@ -42,7 +42,7 @@ Status: **PENDING** = work or verification remains; **DONE** = verified delivera
 | T16 | analyzereview | DONE | Real NLTK VADER on 5050 returns positive for Fantastic services; analyzereview preserves the exact curl output. |
 | T17 | screenshots/get_dealers.png | DONE | Inspected native Chrome capture of the logged-out dealers page; login/register visible and no review column. |
 | T18 | screenshots/get_dealers_loggedin.png | DONE | Inspected native Chrome address bar, capstonetester username and Review Dealer options on /dealers. |
-| T19 | screenshots/dealersbystate.png | PENDING | Real headed browser address bar and state filtering required. |
+| T19 | screenshots/dealersbystate.png | DONE | Inspected native Chrome URL /dealers?state=Kansas and the actual Topeka/Bytecard filtered record. |
 | T20 | screenshots/dealer_id_reviews.png | PENDING | Real headed browser address bar, dealer details and reviews required. |
 | T21 | screenshots/dealership_review_submission.png | PENDING | Fill a real review form through the UI and capture before submission. |
 | T22 | screenshots/added_review.png | PENDING | Submit through the UI, persist in MongoDB and capture the visible review. |
